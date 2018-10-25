@@ -1,3 +1,5 @@
+package com.ferhat.rsa.encryptor;
+
 import org.apache.commons.codec.binary.Base64;
 import org.w3c.dom.Document;
 
