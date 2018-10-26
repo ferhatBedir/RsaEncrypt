@@ -42,9 +42,9 @@ public class Cryptography {
         return rsaFactory.generatePublic(rsaKeyspec);
     }
 
-    public void encryptFile(byte[] input, File output, PublicKey key) throws IOException, GeneralSecurityException {
+    public void encryptString(String input, File output, PublicKey key) throws IOException, GeneralSecurityException {
         this.cipher.init(Cipher.ENCRYPT_MODE, key);
-        writeToFile(output, this.cipher.doFinal(input));
+        writeToFile(output, this.cipher.doFinal(input.getBytes()));
     }
 
     private void writeToFile(File output, byte[] toWrite) throws IOException {
@@ -53,14 +53,6 @@ public class Cryptography {
         fos.write(encryptFileBytes);
         fos.flush();
         fos.close();
-    }
-
-    public byte[] getFileInBytes(File f) throws IOException {
-        FileInputStream fis = new FileInputStream(f);
-        byte[] fbytes = new byte[(int) f.length()];
-        fis.read(fbytes);
-        fis.close();
-        return fbytes;
     }
 
 }
