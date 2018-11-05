@@ -18,3 +18,21 @@
 
 <h2>SAMPLE XML PUBLIC KEY FILE</h2>
 
+     RSAKeyValue
+
+           Modulus
+
+               xA7SEU+e0yQH5rm9kbCDN9o3aPIo7HbP7tX6WOocLZAtNfyxSZDU16ksL6
+               WjubafOqNEpcwR3RdFsT7bCqnXPBe5ELh5u4VEy19MzxkXRgrMvavzyBpV
+               RgBUwUlV5foK5hhmbktQhyNdy/6LpQRhDUDsTvK+g9Ucj47es9AQJ3U=
+
+           Modulus
+
+           Exponent
+
+               AQAB
+
+           Exponent
+
+     RSAKeyValue
+
