@@ -35,10 +35,10 @@ public class Cryptography {
         String modulus = document.getElementsByTagName("Modulus").item(0).getTextContent();
         String exponent = document.getElementsByTagName("Exponent").item(0).getTextContent();
 
-        byte[] modulusBytes = modulus.getBytes();
-        byte[] expBytes = exponent.getBytes();
+        byte[] modulusBytes = Base64.decodeBase64(modulus.getBytes());
+        byte[] expBytes = Base64.decodeBase64(exponent.getBytes());
         KeyFactory rsaFactory = KeyFactory.getInstance("RSA");
-        RSAPublicKeySpec rsaKeyspec = new RSAPublicKeySpec(new BigInteger(modulusBytes), new BigInteger(expBytes));
+        RSAPublicKeySpec rsaKeyspec = new RSAPublicKeySpec(new BigInteger(1, modulusBytes), new BigInteger(1, expBytes));
 
         return rsaFactory.generatePublic(rsaKeyspec);
     }
@@ -54,7 +54,7 @@ public class Cryptography {
                 String[] lineArr = line.split(SEPERATOR);
                 String id = lineArr[0];
                 String inputStr = lineArr[1];
-                String encryptedStr = Base64.encodeBase64String(cipher.doFinal(inputStr.getBytes()));
+                String encryptedStr = Base64.encodeBase64String(cipher.doFinal(inputStr.getBytes("UTF-16LE")));
                 encryptedLines.add(id + SEPERATOR + encryptedStr);
             }
         }
